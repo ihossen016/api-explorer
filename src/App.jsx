@@ -21,14 +21,14 @@ function App() {
         <div className="flex justify-start items-start">
             <History />
 
-            <div className="w-full py-10 pl-[20%] md:pl-10">
+            <div className="w-full py-10 pl-[20%] pr-[5%] md:pl-10">
                 <h1 className="text-3xl font-bold underline">API Explorer</h1>
 
                 <form className="py-5" onSubmit={handleSubmit}>
-                    <div className="flex items-center justify-start gap-2">
-                        <div className="w-3/4 border border-gray-600">
+                    <div className="flex flex-col md:flex-row items-center justify-start gap-2">
+                        <div className="w-full md:w-3/4 border border-gray-600 divide-y-2 md:divide-y-0">
                             <select
-                                className="w-[15%] form-select px-5 py-3 border-0"
+                                className="w-full md:w-[15%] form-select px-5 py-3 border-0"
                                 value={requestObj.method}
                                 onChange={e =>
                                     setRequestObj({
@@ -45,7 +45,7 @@ function App() {
                             </select>
 
                             <input
-                                className="form-input w-[85%] px-4 py-3 border-0 bg-transparent"
+                                className="form-input w-full md:w-[85%] px-4 py-3 border-0 bg-transparent"
                                 type="text"
                                 value={requestObj.url}
                                 placeholder={requestObj.placeholder}
@@ -60,7 +60,7 @@ function App() {
 
                         <button
                             type="submit"
-                            className="w-[10%] px-5 py-3 bg-blue-600 text-white border border-blue-600"
+                            className="w-full md:w-[10%] px-5 py-3 bg-blue-600 text-white border border-blue-600"
                         >
                             Send
                         </button>
