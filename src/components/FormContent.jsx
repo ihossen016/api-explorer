@@ -7,7 +7,7 @@ function FormContent({ requestObj, setRequestObj }) {
     const [toggleState, setToggleState] = useState(0);
 
     return (
-        <div className="w-3/4">
+        <div className="w-full">
             <Tabs toggleState={toggleState} setToggleState={setToggleState} />
 
             <div className="py-5 bg-gray-50 px-10">
