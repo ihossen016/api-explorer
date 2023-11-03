@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import History from "./components/History";
 import FormHeader from "./components/FormHeader";
 import FormContent from "./components/FormContent";
-import JsonView from "react18-json-view";
-import "react18-json-view/src/style.css";
+import FormResponse from "./components/FormResponse";
 
 function App() {
     const [requestObj, setRequestObj] = useState({
@@ -45,10 +44,8 @@ function App() {
                         <FormContent />
                     </div>
                 </form>
-                <JsonView
-                    src={src}
-                    editable={{ add: true, edit: true, delete: true }}
-                />
+
+                <FormResponse src={{ status: 200, message: "success" }} />
             </div>
         </div>
     );
