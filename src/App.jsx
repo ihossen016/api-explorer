@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import History from "./components/History";
 import FormHeader from "./components/FormHeader";
 import FormContent from "./components/FormContent";
+import JsonView from "react18-json-view";
+import "react18-json-view/src/style.css";
 
 function App() {
     const [requestObj, setRequestObj] = useState({
@@ -12,6 +14,10 @@ function App() {
         headers: {},
         body: {},
     });
+
+    const src = {
+        test: "test",
+    };
 
     // useEffect(() => {
     //     console.log(requestObj.headers);
@@ -39,6 +45,10 @@ function App() {
                         <FormContent />
                     </div>
                 </form>
+                <JsonView
+                    src={src}
+                    editable={{ add: true, edit: true, delete: true }}
+                />
             </div>
         </div>
     );
