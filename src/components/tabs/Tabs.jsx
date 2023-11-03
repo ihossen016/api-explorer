@@ -10,6 +10,7 @@ function Tabs({ toggleState, setToggleState }) {
         <ul className="w-2/4 flex bg-white">
             {tabs.map((tab, index) => (
                 <li
+                    key={tab}
                     className={`w-1/2 px-7 py-3 font-medium text-center cursor-pointer ${
                         index !== toggleState ? "border-b" : ""
                     } border-black ${getActiveTabClass(
