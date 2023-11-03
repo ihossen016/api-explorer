@@ -8,11 +8,14 @@ function App() {
         method: "GET",
         url: "",
         placeholder: "Enter URL or paste text",
+        params: {},
+        headers: {},
+        body: {},
     });
 
     // useEffect(() => {
-    //     console.log(requestObj.method);
-    // }, [requestObj.method]);
+    //     console.log(requestObj.headers);
+    // }, [requestObj.headers]);
 
     const handleSubmit = e => {
         e.preventDefault();
