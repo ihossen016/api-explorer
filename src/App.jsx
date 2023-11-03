@@ -41,7 +41,10 @@ function App() {
                     />
 
                     <div className="py-10">
-                        <FormContent />
+                        <FormContent
+                            requestObj={requestObj}
+                            setRequestObj={setRequestObj}
+                        />
                     </div>
                 </form>
 
