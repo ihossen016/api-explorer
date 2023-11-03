@@ -18,7 +18,7 @@ function FormContent({ requestObj, setRequestObj }) {
                     <h2 className="py-5">Input your Headers in JSON format</h2>
 
                     <JsonView
-                        className="bg-gray-100 text-black text-xl"
+                        className="bg-gray-100 text-black text-3xl"
                         editable={{ add: true, edit: true, delete: true }}
                         src={requestObj.headers}
                         onChange={data =>
@@ -33,7 +33,7 @@ function FormContent({ requestObj, setRequestObj }) {
                     <h2 className="py-5">Input your Data in JSON format</h2>
 
                     <JsonView
-                        className="bg-gray-100 text-black text-xl"
+                        className="bg-gray-100 text-black text-3xl"
                         editable={{ add: true, edit: true, delete: true }}
                         src={requestObj.body}
                         onChange={data =>
