@@ -9,7 +9,7 @@ function App() {
         method: "GET",
         url: "",
         placeholder: "Enter URL or paste text",
-        params: {},
+        params: [{ key: "", value: "" }],
         headers: {},
         body: {},
     });
