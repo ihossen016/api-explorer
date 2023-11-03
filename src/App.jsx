@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import History from "./components/History";
 import FormHeader from "./components/FormHeader";
+import FormContent from "./components/FormContent";
 
 function App() {
     const [requestObj, setRequestObj] = useState({
@@ -30,6 +31,10 @@ function App() {
                         requestObj={requestObj}
                         setRequestObj={setRequestObj}
                     />
+
+                    <div className="py-10">
+                        <FormContent />
+                    </div>
                 </form>
             </div>
         </div>
