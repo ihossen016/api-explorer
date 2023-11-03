@@ -8,7 +8,7 @@ function History() {
             className={`px-5 flex justify-start items-start absolute z-50 md:static min-h-screen md:px-6 border-r-2 py-10 overflow-hidden bg-white`}
         >
             <img
-                className=""
+                className="cursor-pointer"
                 src="./history.svg"
                 alt="history-icon"
                 onClick={() => setMobileWidth(!mobileWidth)}
