@@ -1,4 +1,4 @@
-const httpStatuses = {
+export const httpStatuses = {
     100: "Continue",
     101: "Switching Protocols",
     200: "OK",
@@ -41,4 +41,36 @@ const httpStatuses = {
     505: "HTTP Version Not Supported",
 };
 
-export default httpStatuses;
+export const statusMessages = {
+    300: "Multiple Choices - Please choose a different resource",
+    301: "Moved Permanently - The resource has moved permanently",
+    302: "Found - The resource has moved temporarily",
+    303: "See Other - You should visit a different URL",
+    304: "Not Modified - The resource has not been modified",
+    305: "Use Proxy - Please use a proxy server",
+    307: "Temporary Redirect - The request should be repeated with another URI",
+    400: "Bad Request - The request could not be understood or was missing required parameters",
+    401: "Unauthorized - Authentication failed or user lacks necessary permissions",
+    402: "Payment Required - Payment is required before accessing this resource",
+    403: "Forbidden - Access to the requested resource is forbidden",
+    404: "Not Found - The requested resource could not be found",
+    405: "Method Not Allowed - A request method is not supported for the requested resource",
+    406: "Not Acceptable - The requested resource is capable of generating only content not acceptable",
+    407: "Proxy Authentication Required - You must authenticate with a proxy server",
+    408: "Request Timeout - The server timed out waiting for the request",
+    409: "Conflict - The request could not be completed due to a conflict with the current state of the resource",
+    410: "Gone - The requested resource is no longer available at the server",
+    411: "Length Required - The request did not specify the length of its content",
+    412: "Precondition Failed - The server does not meet one of the preconditions specified in the request",
+    413: "Request Entity Too Large - The request is larger than the server is willing or able to process",
+    414: "Request-URI Too Long - The URI provided was too long for the server to process",
+    415: "Unsupported Media Type - The request entity has a media type which the server does not support",
+    416: "Requested Range Not Satisfiable - The client has asked for a portion of the file, but the server cannot supply that portion",
+    417: "Expectation Failed - The server cannot meet the requirements of the Expect request-header field",
+    500: "Internal Server Error - An unexpected condition was encountered by the server",
+    501: "Not Implemented - The server does not support the functionality required to fulfill the request",
+    502: "Bad Gateway - The server, while acting as a gateway or proxy, received an invalid response from the upstream server it accessed",
+    503: "Service Unavailable - The server is currently unable to handle the request",
+    504: "Gateway Timeout - The server, while acting as a gateway or proxy, did not receive a timely response from the upstream server",
+    505: "HTTP Version Not Supported - The server does not support the HTTP protocol version that was used in the request",
+};
