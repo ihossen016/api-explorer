@@ -2,7 +2,9 @@ import React from "react";
 
 function Tabs({ requestObj, toggleState, setToggleState }) {
     const tabs =
-        requestObj.method === "POST" || requestObj.method === "PUT"
+        requestObj.method === "POST" ||
+        requestObj.method === "PUT" ||
+        requestObj.method === "PATCH"
             ? ["Params", "Headers", "Body"]
             : ["Params", "Headers"];
 
