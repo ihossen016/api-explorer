@@ -7,7 +7,7 @@ function FormResponse({ response }) {
 
     return (
         <div className="p-10 bg-gray-50">
-            <h2 className="text-lg font-bold pb-3">Response</h2>
+            <h2 className="text-lg md:text-2xl font-bold pb-3">Response</h2>
             <div className="flex justify-start items-center gap-5 pb-3">
                 <p>
                     Status:{" "}
@@ -29,10 +29,19 @@ function FormResponse({ response }) {
                     Time: <span>{time}</span>
                 </p>
             </div>
-            <JsonView
-                className="bg-gray-100 text-black text-lg p-5"
-                src={body}
-            />
+
+            {status !== 0 && (
+                <JsonView
+                    className="bg-gray-100 text-black text-lg p-5"
+                    src={body}
+                />
+            )}
+
+            {status === 0 && (
+                <div class="font-regular relative block w-full rounded-lg bg-blue-300 p-4 text-base leading-5 text-blue-700 opacity-100">
+                    Submit an URL to see the response
+                </div>
+            )}
         </div>
     );
 }
