@@ -1,6 +1,7 @@
 import React from "react";
 import JsonView from "react18-json-view";
 import "react18-json-view/src/style.css";
+import httpStatuses from "../../data";
 
 function FormResponse({ response }) {
     const { status, body, time, size } = response;
@@ -23,6 +24,7 @@ function FormResponse({ response }) {
                         }`}
                     >
                         {status}
+                        <span> ({httpStatuses[status]})</span>
                     </span>
                 </p>
                 <p>
@@ -50,6 +52,19 @@ function FormResponse({ response }) {
             {status === 0 && (
                 <div className="font-regular relative block w-full rounded-lg bg-blue-300 p-4 text-base leading-5 text-blue-700 opacity-100">
                     Submit an URL to see the response
+                </div>
+            )}
+
+            {status === 404 && (
+                <div className="font-regular relative block w-full rounded-lg bg-red-300 p-4 text-base leading-5 text-red-700 opacity-100">
+                    The endpoint might be incorrect. Check your URL again.
+                </div>
+            )}
+
+            {status === 400 && (
+                <div className="font-regular relative block w-full rounded-lg bg-red-300 p-4 text-base leading-5 text-red-700 opacity-100">
+                    Check your payload is incorrect. Recheck them before trying
+                    again.
                 </div>
             )}
         </div>
