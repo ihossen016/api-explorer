@@ -36,7 +36,7 @@ function Form() {
 
         try {
             const urlSearchParams = new URLSearchParams();
-            let queryString = "?";
+            let queryString = "";
             let responseSize;
             let authObj;
 
@@ -45,7 +45,7 @@ function Form() {
                     urlSearchParams.append(param.key, param.value);
                 });
 
-                queryString += urlSearchParams.toString();
+                queryString += "?" + urlSearchParams.toString();
             }
 
             if (requestObj.method === "POST" || requestObj.method === "PUT") {
