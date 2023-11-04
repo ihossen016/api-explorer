@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function History() {
-    const [mobileWidth, setMobileWidth] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div
@@ -9,11 +9,11 @@ function History() {
         >
             <img
                 className="cursor-pointer"
-                src="./history.svg"
+                src={`./${!isOpen ? "history" : "close"}.svg`}
                 alt="history-icon"
-                onClick={() => setMobileWidth(!mobileWidth)}
+                onClick={() => setIsOpen(!isOpen)}
             />
-            <div className={`w-full pr-5 ${!mobileWidth ? "hidden" : ""}`}>
+            <div className={`w-full pr-5 ${!isOpen ? "hidden" : ""}`}>
                 <h2 className="text-lg font-black text-right md:text-2xl">
                     History
                 </h2>
