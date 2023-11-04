@@ -5,7 +5,7 @@ function FormHeader({ requestObj, setRequestObj }) {
         <div className="flex flex-col md:flex-row items-center justify-start gap-2">
             <div className="w-full md:w-3/4 border border-gray-600 divide-y-2 md:divide-y-0">
                 <select
-                    className="w-full md:w-[15%] form-select px-5 py-3 border-0"
+                    className="w-full md:w-[15%] form-select px-5 py-3 border-0 cursor-pointer"
                     value={requestObj.method}
                     onChange={e =>
                         setRequestObj({

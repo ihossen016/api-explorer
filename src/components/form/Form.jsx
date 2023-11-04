@@ -19,7 +19,7 @@ function Form() {
         method: "",
         url: "",
         params: [],
-        time: "",
+        time: "0ms",
         status: 0,
         body: {},
     });

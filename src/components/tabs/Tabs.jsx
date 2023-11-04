@@ -1,7 +1,10 @@
 import React from "react";
 
-function Tabs({ toggleState, setToggleState }) {
-    const tabs = ["Params", "Headers", "Body"];
+function Tabs({ requestObj, toggleState, setToggleState }) {
+    const tabs =
+        requestObj.method === "POST" || requestObj.method === "PUT"
+            ? ["Params", "Headers", "Body"]
+            : ["Params", "Headers"];
 
     const getActiveTabClass = (index, className) =>
         toggleState === index ? className : "";

@@ -8,7 +8,11 @@ function FormContent({ requestObj, setRequestObj }) {
 
     return (
         <div className="w-full">
-            <Tabs toggleState={toggleState} setToggleState={setToggleState} />
+            <Tabs
+                requestObj={requestObj}
+                toggleState={toggleState}
+                setToggleState={setToggleState}
+            />
 
             <div className="py-5 bg-gray-50 px-10">
                 <div className={`${toggleState !== 0 ? "hidden" : ""}`}>
