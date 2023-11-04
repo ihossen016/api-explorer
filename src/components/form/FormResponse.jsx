@@ -3,7 +3,7 @@ import JsonView from "react18-json-view";
 import "react18-json-view/src/style.css";
 
 function FormResponse({ response }) {
-    const { status, body, time } = response;
+    const { status, body, time, size } = response;
 
     return (
         <div className="p-10 bg-gray-50">
@@ -27,6 +27,16 @@ function FormResponse({ response }) {
                 </p>
                 <p>
                     Time: <span>{time}</span>
+                </p>
+                <p>
+                    Size:{" "}
+                    {status === 0 ? (
+                        <span>{size} bytes</span>
+                    ) : status !== 0 && size ? (
+                        <span>{size} bytes</span>
+                    ) : (
+                        <span> Not Found</span>
+                    )}
                 </p>
             </div>
 
