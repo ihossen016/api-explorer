@@ -34,8 +34,19 @@ function Form() {
         setIsLoading(true);
 
         try {
+            const urlSearchParams = new URLSearchParams();
+            let queryString = "?";
+
+            if (requestObj.params.length > 0) {
+                requestObj.params.forEach(param => {
+                    urlSearchParams.append(param.key, param.value);
+                });
+
+                queryString += urlSearchParams.toString();
+            }
+
             const startTime = performance.now();
-            const response = await fetch(requestObj.url, {
+            const response = await fetch(requestObj.url + queryString, {
                 method: requestObj.method,
                 headers: requestObj.headers,
             });
