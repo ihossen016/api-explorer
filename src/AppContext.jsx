@@ -1,13 +1,20 @@
 import { createContext, useReducer } from "react";
 
-const initialState = [];
+const prevHistories = localStorage.getItem("api-explorer-histories");
+const initialState = prevHistories ? JSON.parse(prevHistories) : [];
 
 const AppContext = createContext();
 
 const appReducer = (state, action) => {
     switch (action.type) {
         case "ADD":
-            return [...state, action.payload];
+            const updatedHistories = [...state, action.payload].slice(-5);
+            localStorage.setItem(
+                "api-explorer-histories",
+                JSON.stringify(updatedHistories)
+            );
+
+            return updatedHistories;
         case "REMOVE":
             return state.filter((item, index) => index != action.payload);
         default:

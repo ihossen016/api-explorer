@@ -4,6 +4,7 @@ import { AppContext } from "../AppContext";
 function History() {
     const [isOpen, setIsOpen] = useState(false);
     const { histories, dispatch } = useContext(AppContext);
+    console.log(histories);
 
     return (
         <div

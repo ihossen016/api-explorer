@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import FormHeader from "./FormHeader";
 import FormContent from "./FormContent";
 import FormResponse from "./FormResponse";
 import Loader from "../Loader";
+import { AppContext } from "../../AppContext";
 
 function Form() {
+    const { dispatch } = useContext(AppContext);
     const [isLoading, setIsLoading] = useState(false);
     const [requestObj, setRequestObj] = useState({
         method: "GET",
@@ -14,7 +16,6 @@ function Form() {
         headers: {},
         body: {},
     });
-
     const [responseObj, setResponsetObj] = useState({
         method: "",
         url: "",
@@ -90,6 +91,12 @@ function Form() {
             setIsLoading(false);
         }
     };
+
+    useEffect(() => {
+        if (responseObj.status > 0) {
+            dispatch({ type: "ADD", payload: responseObj });
+        }
+    }, [responseObj.status]);
 
     return (
         <>
