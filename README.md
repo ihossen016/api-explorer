@@ -31,6 +31,31 @@ yarn install
 npm run dev
 ```
 
+## Live Demo
+
+[Live Demo]()
+
+## Libraries & Tools Used
+
+#### Frontend Development
+
+-   React
+-   Vite
+-   uuid
+-   JSON View
+-   TailwindCSS
+-   TailwindCSS Forms
+-   Material Tailwind
+
+#### Version Control
+
+-   Git
+-   GitHub
+
+#### Deployment
+
+-   Vercel
+
 ## Screenshots
 
 -   Desktop View
