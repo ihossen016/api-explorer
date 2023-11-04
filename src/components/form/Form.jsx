@@ -15,15 +15,49 @@ function Form() {
         body: {},
     });
 
+    const [responseObj, setResponsetObj] = useState({
+        method: "",
+        url: "",
+        params: [],
+        time: "",
+        status: 0,
+        body: {},
+    });
+
     const handleSubmit = e => {
         e.preventDefault();
+
+        handleFetch();
+    };
+
+    const handleFetch = async () => {
         setIsLoading(true);
 
-        console.log(requestObj);
+        try {
+            const startTime = performance.now();
+            const response = await fetch(requestObj.url, {
+                method: requestObj.method,
+                headers: requestObj.headers,
+            });
 
-        setTimeout(() => {
+            const endTime = performance.now();
+            const responseTime = endTime - startTime;
+
+            const data = await response.json();
+
+            setResponsetObj({
+                method: requestObj.method,
+                url: requestObj.url,
+                params: requestObj.params,
+                time: responseTime + "ms",
+                status: response.status,
+                body: data,
+            });
+        } catch (error) {
+            console.error("Error:", error);
+        } finally {
             setIsLoading(false);
-        }, 2000);
+        }
     };
 
     return (
