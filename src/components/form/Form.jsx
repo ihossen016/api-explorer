@@ -4,8 +4,9 @@ import FormContent from "./FormContent";
 import FormResponse from "./FormResponse";
 import Loader from "../Loader";
 import { AppContext } from "../../AppContext";
+import { Button } from "@material-tailwind/react";
 
-function Form() {
+function Form({ openDrawer }) {
     const { dispatch } = useContext(AppContext);
     const [isLoading, setIsLoading] = useState(false);
     const [requestObj, setRequestObj] = useState({
@@ -102,8 +103,13 @@ function Form() {
         <>
             {isLoading && <Loader />}
 
-            <div className="w-5/6 py-10 pl-[20%] pr-[5%] md:pl-10">
-                <h1 className="text-3xl font-bold underline">API Explorer</h1>
+            <div className="w-11/12 md:w-5/6 py-10 mx-auto">
+                <div className="flex justify-between items-center py-2 lg:py-4">
+                    <h1 className="text-3xl font-bold underline">
+                        API Explorer
+                    </h1>
+                    <Button onClick={openDrawer}>Show History</Button>
+                </div>
 
                 <form className="py-5" onSubmit={handleSubmit}>
                     <FormHeader
