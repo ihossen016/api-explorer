@@ -108,7 +108,8 @@ function Form({ openDrawer }) {
 
             <div className="w-11/12 md:w-5/6 py-10 mx-auto">
                 <div className="flex justify-between items-center py-2 lg:py-4">
-                    <h1 className="text-3xl font-bold underline">
+                    <h1 className="flex items-center gap-1 md:gap-3 text-xl md:text-3xl font-bold cursor-pointer">
+                        <img src="./logo.svg" alt="logo" />
                         API Explorer
                     </h1>
                     <Button onClick={openDrawer}>View History</Button>
