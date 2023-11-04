@@ -25,11 +25,19 @@ or
 yarn install
 ```
 
--   Now to run the application run this command
+-   Now to run the application execute this command
 
 ```bash
 npm run dev
 ```
+
+After that the application will open on this port
+
+```bash
+http://127.0.0.1:5173/
+```
+
+`Port number may vary depending on environment.`
 
 ## Live Demo
 
