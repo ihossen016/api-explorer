@@ -10,7 +10,7 @@ function Form() {
         method: "GET",
         url: "",
         placeholder: "Enter URL or paste text",
-        params: [{ key: "", value: "" }],
+        params: [],
         headers: {},
         body: {},
     });
