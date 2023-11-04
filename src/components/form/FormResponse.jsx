@@ -9,7 +9,7 @@ function FormResponse({ response }) {
     return (
         <div className="p-10 bg-gray-50">
             <h2 className="text-lg md:text-2xl font-bold pb-3">Response</h2>
-            <div className="flex justify-start items-center gap-5 pb-3">
+            <div className="flex flex-col md:flex-row justify-start md:items-center items-start gap-5 pb-3">
                 <p>
                     Status:{" "}
                     <span
