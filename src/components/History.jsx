@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../AppContext";
 
 function History() {
     const [isOpen, setIsOpen] = useState(false);
+    const { state, dispatch } = useContext(AppContext);
 
     return (
         <div
-            className={`px-5 flex justify-start items-start absolute z-50 md:static min-h-screen md:px-6 border-r-2 py-10 overflow-hidden bg-white`}
+            className={`px-5 flex justify-start items-start gap-4 absolute z-50 md:static min-h-screen md:px-6 border-r-2 py-10 overflow-hidden bg-white`}
         >
             <img
                 className="cursor-pointer"
@@ -14,16 +16,9 @@ function History() {
                 onClick={() => setIsOpen(!isOpen)}
             />
             <div className={`w-full pr-5 ${!isOpen ? "hidden" : ""}`}>
-                <h2 className="text-lg font-black text-right md:text-2xl">
-                    History
-                </h2>
+                <h2 className="text-lg font-black md:text-2xl">History</h2>
                 <ul className="pt-10">
-                    <li>ashfoahshfohdaofhjposdh</li>
-                    <li>ashfoahshfohdaofhjposdh</li>
-                    <li>ashfoahshfohdaofhjposdh</li>
-                    <li>ashfoahshfohdaofhjposdh</li>
-                    <li>ashfoahshfohdaofhjposdh</li>
-                    <li>ashfoahshfohdaofhjposdh</li>
+                    {state.length === 0 && <li>No History</li>}
                 </ul>
             </div>
         </div>
