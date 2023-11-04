@@ -108,7 +108,7 @@ function Form({ openDrawer }) {
                     <h1 className="text-3xl font-bold underline">
                         API Explorer
                     </h1>
-                    <Button onClick={openDrawer}>Show History</Button>
+                    <Button onClick={openDrawer}>View History</Button>
                 </div>
 
                 <form className="py-5" onSubmit={handleSubmit}>
