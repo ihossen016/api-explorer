@@ -32,7 +32,7 @@ function FormResponse({ response }) {
 
             {status !== 0 && (
                 <JsonView
-                    className="bg-gray-100 text-black text-lg p-5 h-96 overflow-auto"
+                    className="bg-gray-100 text-black text-lg p-5 max-h-96 overflow-auto"
                     src={body}
                 />
             )}
