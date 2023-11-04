@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
     Drawer,
     Button,
@@ -9,8 +9,11 @@ import {
     ListItemSuffix,
     Card,
 } from "@material-tailwind/react";
+import { AppContext } from "../AppContext";
 
 function NewHistory({ openLeft, closeDrawer }) {
+    const { histories, dispatch } = useContext(AppContext);
+
     function TrashIcon() {
         return (
             <svg
@@ -61,32 +64,33 @@ function NewHistory({ openLeft, closeDrawer }) {
                 </IconButton>
             </div>
 
-            <List>
-                <ListItem ripple={false} className="py-1 pr-1 pl-4">
-                    Item One
-                    <ListItemSuffix>
-                        <IconButton variant="text" color="blue-gray">
-                            <TrashIcon />
-                        </IconButton>
-                    </ListItemSuffix>
-                </ListItem>
-                <ListItem ripple={false} className="py-1 pr-1 pl-4">
-                    Item Two
-                    <ListItemSuffix>
-                        <IconButton variant="text" color="blue-gray">
-                            <TrashIcon />
-                        </IconButton>
-                    </ListItemSuffix>
-                </ListItem>
-                <ListItem ripple={false} className="py-1 pr-1 pl-4">
-                    Item Three
-                    <ListItemSuffix>
-                        <IconButton variant="text" color="blue-gray">
-                            <TrashIcon />
-                        </IconButton>
-                    </ListItemSuffix>
-                </ListItem>
-            </List>
+            {histories.length === 0 && (
+                <Typography color="gray" className="mb-8 pr-4 font-normal">
+                    No History Found.
+                </Typography>
+            )}
+
+            {histories.length > 0 && (
+                <List>
+                    {histories.map((history, index) => (
+                        <ListItem
+                            key={index}
+                            ripple={false}
+                            className="py-1 pr-1 pl-4 flex items-center gap-2"
+                        >
+                            <Typography color="green">
+                                {history.method}
+                            </Typography>
+                            {history.url.slice(0, 20)}...
+                            <ListItemSuffix>
+                                <IconButton variant="text" color="blue-gray">
+                                    <TrashIcon />
+                                </IconButton>
+                            </ListItemSuffix>
+                        </ListItem>
+                    ))}
+                </List>
+            )}
         </Drawer>
     );
 }
