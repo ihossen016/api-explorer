@@ -1,18 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
     Drawer,
-    Button,
     Typography,
     IconButton,
     List,
-    ListItem,
     ListItemSuffix,
-    Card,
+    Accordion,
+    AccordionHeader,
+    AccordionBody,
 } from "@material-tailwind/react";
+import JsonView from "react18-json-view";
 import { AppContext } from "../AppContext";
 
 function History({ openLeft, closeDrawer }) {
     const { histories, dispatch } = useContext(AppContext);
+    const [open, setOpen] = useState(0);
+
+    const handleOpen = value => setOpen(open === value ? 0 : value);
 
     function TrashIcon() {
         return (
@@ -73,21 +77,33 @@ function History({ openLeft, closeDrawer }) {
             {histories.length > 0 && (
                 <List>
                     {histories.map((history, index) => (
-                        <ListItem
-                            key={index}
-                            ripple={false}
-                            className="py-1 pr-1 pl-4 flex items-center gap-2"
-                        >
-                            <Typography color="green">
-                                {history.method}
-                            </Typography>
-                            {history.url.slice(0, 20)}...
-                            <ListItemSuffix>
-                                <IconButton variant="text" color="blue-gray">
-                                    <TrashIcon />
-                                </IconButton>
-                            </ListItemSuffix>
-                        </ListItem>
+                        <Accordion key={index} open={open === index + 1}>
+                            <AccordionHeader
+                                onClick={() => handleOpen(index + 1)}
+                                className="text-sm font-normal py-1 flex justify-between items-center gap-2"
+                            >
+                                <Typography
+                                    className="font-bold text-sm"
+                                    color="green"
+                                >
+                                    {history.method}
+                                </Typography>
+                                {history.url.slice(0, 25)}...
+                                <ListItemSuffix>
+                                    <span className="text-blue-gray-700 p-2 rounded hover:bg-blue-gray-50 transition-all">
+                                        <TrashIcon />
+                                    </span>
+                                </ListItemSuffix>
+                            </AccordionHeader>
+
+                            <AccordionBody>
+                                <JsonView
+                                    src={history}
+                                    collapseStringsAfterLength={10}
+                                    className="max-h-60 overflow-auto"
+                                />
+                            </AccordionBody>
+                        </Accordion>
                     ))}
                 </List>
             )}
