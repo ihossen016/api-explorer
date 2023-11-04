@@ -49,7 +49,7 @@ function Form() {
                 method: requestObj.method,
                 url: requestObj.url,
                 params: requestObj.params,
-                time: responseTime + "ms",
+                time: responseTime.toFixed(2) + "ms",
                 status: response.status,
                 body: data,
             });
@@ -81,7 +81,7 @@ function Form() {
                     </div>
                 </form>
 
-                <FormResponse src={{ status: 200, message: "success" }} />
+                <FormResponse response={responseObj} />
             </div>
         </>
     );
