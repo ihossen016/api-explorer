@@ -52,7 +52,7 @@ function FormResponse({ response }) {
             )}
 
             {status === 0 && (
-                <div className="font-regular relative block w-full rounded-lg bg-blue-300 p-4 text-base leading-5 text-blue-700 opacity-100">
+                <div className="font-regular relative block w-full rounded-lg bg-blue-100 p-4 text-base leading-5 text-blue-700 opacity-100">
                     Submit an URL to see the response
                 </div>
             )}
@@ -64,7 +64,7 @@ function FormResponse({ response }) {
             )}
 
             {status >= 400 && (
-                <div className="font-regular relative block w-full rounded-lg bg-red-300 p-4 text-base leading-5 text-red-700 opacity-100">
+                <div className="font-regular relative block w-full rounded-lg bg-red-100 p-4 text-base leading-5 text-red-700 opacity-100">
                     {statusMessages[status]}
                 </div>
             )}
