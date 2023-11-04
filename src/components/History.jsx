@@ -3,7 +3,7 @@ import { AppContext } from "../AppContext";
 
 function History() {
     const [isOpen, setIsOpen] = useState(false);
-    const { state, dispatch } = useContext(AppContext);
+    const { histories, dispatch } = useContext(AppContext);
 
     return (
         <div
@@ -18,7 +18,7 @@ function History() {
             <div className={`w-full pr-5 ${!isOpen ? "hidden" : ""}`}>
                 <h2 className="text-lg font-black md:text-2xl">History</h2>
                 <ul className="pt-10">
-                    {state.length === 0 && <li>No History</li>}
+                    {histories.length === 0 && <li>No History</li>}
                 </ul>
             </div>
         </div>

@@ -16,10 +16,10 @@ const appReducer = (state, action) => {
 };
 
 const AppProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(appReducer, initialState);
+    const [histories, dispatch] = useReducer(appReducer, initialState);
 
     return (
-        <AppContext.Provider value={{ state, dispatch }}>
+        <AppContext.Provider value={{ histories, dispatch }}>
             {children}
         </AppContext.Provider>
     );
