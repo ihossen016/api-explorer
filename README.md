@@ -34,4 +34,21 @@ npm run dev
 ## Screenshots
 
 -   Desktop View
+
+#####
+
+![desktop-1](https://raw.githubusercontent.com/ihossen016/api-explorer/main/public/d1.png)
+
+#####
+
+![desktop-2](https://raw.githubusercontent.com/ihossen016/api-explorer/main/public/d2.png)
+
 -   Mobile View
+
+#####
+
+![desktop-1](https://raw.githubusercontent.com/ihossen016/api-explorer/main/public/m1.png)
+
+#####
+
+![desktop-2](https://raw.githubusercontent.com/ihossen016/api-explorer/main/public/m2.png)
