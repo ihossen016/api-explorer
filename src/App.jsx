@@ -3,7 +3,7 @@ import History from "./components/History";
 
 function App() {
     return (
-        <div className="flex justify-start items-start">
+        <div className="flex justify-start">
             <History />
 
             <Form />

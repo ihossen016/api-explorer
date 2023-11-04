@@ -64,7 +64,7 @@ function FormContent({ requestObj, setRequestObj }) {
                             return (
                                 <div
                                     key={index}
-                                    className="flex justify-start items-center gap-5 mb-4"
+                                    className="flex flex-col md:flex-row justify-start items-center gap-5 mb-4"
                                 >
                                     <input
                                         type="text"
