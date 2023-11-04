@@ -110,21 +110,29 @@ function FormContent({ requestObj, setRequestObj }) {
                         }
                     />
                 </div>
-                <div className={`${toggleState !== 2 ? "hidden" : ""}`}>
-                    <h2 className="py-5">Input your Data in JSON format</h2>
+                {(requestObj.method === "POST" ||
+                    requestObj.method === "PUT" ||
+                    requestObj.method === "PATCH") && (
+                    <div className={`${toggleState !== 2 ? "hidden" : ""}`}>
+                        <h2 className="py-5">Input your Data in JSON format</h2>
 
-                    <JsonView
-                        className="bg-gray-100 text-black text-xl p-5 max-h-96 overflow-auto"
-                        editable={{ add: true, edit: true, delete: true }}
-                        src={requestObj.body}
-                        onChange={data =>
-                            setRequestObj({
-                                ...requestObj,
-                                body: data.src,
-                            })
-                        }
-                    />
-                </div>
+                        <JsonView
+                            className="bg-gray-100 text-black text-xl p-5 max-h-96 overflow-auto"
+                            editable={{
+                                add: true,
+                                edit: true,
+                                delete: true,
+                            }}
+                            src={requestObj.body}
+                            onChange={data =>
+                                setRequestObj({
+                                    ...requestObj,
+                                    body: data.src,
+                                })
+                            }
+                        />
+                    </div>
+                )}
             </div>
         </div>
     );
