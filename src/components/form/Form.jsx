@@ -5,11 +5,13 @@ import FormResponse from "./FormResponse";
 import Loader from "../Loader";
 import { AppContext } from "../../AppContext";
 import { Button } from "@material-tailwind/react";
+import { v4 as uuidv4 } from "uuid";
 
 function Form({ openDrawer }) {
-    const { dispatch } = useContext(AppContext);
+    const { histories, dispatch } = useContext(AppContext);
     const [isLoading, setIsLoading] = useState(false);
     const [requestObj, setRequestObj] = useState({
+        id: uuidv4(),
         method: "GET",
         url: "",
         placeholder: "Enter URL or paste text",
@@ -78,6 +80,7 @@ function Form({ openDrawer }) {
             });
 
             setResponsetObj({
+                id: uuidv4(),
                 method: requestObj.method,
                 url: requestObj.url,
                 params: requestObj.params,
@@ -94,10 +97,10 @@ function Form({ openDrawer }) {
     };
 
     useEffect(() => {
-        if (responseObj.status > 0) {
+        if (responseObj.url) {
             dispatch({ type: "ADD", payload: responseObj });
         }
-    }, [responseObj.status]);
+    }, [responseObj.url]);
 
     return (
         <>

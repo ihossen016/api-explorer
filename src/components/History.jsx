@@ -13,7 +13,6 @@ import { AppContext } from "../AppContext";
 
 function History({ openLeft, closeDrawer }) {
     const { histories, dispatch } = useContext(AppContext);
-    console.log(histories);
 
     function TrashIcon() {
         return (
