@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Form from "./components/form/Form";
-import NewHistory from "./components/NewHistory";
+import History from "./components/History";
 
 function App() {
     const [openLeft, setOpenLeft] = useState(false);
@@ -10,9 +10,7 @@ function App() {
 
     return (
         <div className="w-full">
-            <NewHistory openLeft={openLeft} closeDrawer={closeDrawer} />
-
-            {/* <History /> */}
+            <History openLeft={openLeft} closeDrawer={closeDrawer} />
 
             <Form openDrawer={openDrawer} />
         </div>
