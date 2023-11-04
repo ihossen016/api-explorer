@@ -38,7 +38,7 @@ function FormResponse({ response }) {
             )}
 
             {status === 0 && (
-                <div class="font-regular relative block w-full rounded-lg bg-blue-300 p-4 text-base leading-5 text-blue-700 opacity-100">
+                <div className="font-regular relative block w-full rounded-lg bg-blue-300 p-4 text-base leading-5 text-blue-700 opacity-100">
                     Submit an URL to see the response
                 </div>
             )}
