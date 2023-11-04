@@ -19,7 +19,8 @@ function Form() {
         method: "",
         url: "",
         params: [],
-        time: "0ms",
+        time: "0 ms",
+        size: 0,
         status: 0,
         body: {},
     });
@@ -36,6 +37,8 @@ function Form() {
         try {
             const urlSearchParams = new URLSearchParams();
             let queryString = "?";
+            let responseSize;
+            let authObj;
 
             if (requestObj.params.length > 0) {
                 requestObj.params.forEach(param => {
@@ -45,22 +48,39 @@ function Form() {
                 queryString += urlSearchParams.toString();
             }
 
+            if (requestObj.method === "POST" || requestObj.method === "PUT") {
+                authObj = {
+                    method: requestObj.method,
+                    headers: requestObj.headers,
+                    body: JSON.stringify(requestObj.body),
+                };
+            } else {
+                authObj = {
+                    method: requestObj.method,
+                    headers: requestObj.headers,
+                };
+            }
             const startTime = performance.now();
-            const response = await fetch(requestObj.url + queryString, {
-                method: requestObj.method,
-                headers: requestObj.headers,
-            });
+
+            const response = await fetch(requestObj.url + queryString, authObj);
 
             const endTime = performance.now();
             const responseTime = endTime - startTime;
 
             const data = await response.json();
 
+            response.headers.forEach((value, name) => {
+                if (name.toLowerCase() === "content-length") {
+                    responseSize = value;
+                }
+            });
+
             setResponsetObj({
                 method: requestObj.method,
                 url: requestObj.url,
                 params: requestObj.params,
-                time: responseTime.toFixed(2) + "ms",
+                time: responseTime.toFixed(2) + " ms",
+                size: responseSize,
                 status: response.status,
                 body: data,
             });
