@@ -90,7 +90,15 @@ function History({ openLeft, closeDrawer }) {
                                 </Typography>
                                 {history.url.slice(0, 25)}...
                                 <ListItemSuffix>
-                                    <span className="text-blue-gray-700 p-2 rounded hover:bg-blue-gray-50 transition-all">
+                                    <span
+                                        onClick={() =>
+                                            dispatch({
+                                                type: "REMOVE",
+                                                payload: index,
+                                            })
+                                        }
+                                        className="text-blue-gray-700 p-2 rounded hover:bg-blue-gray-50 transition-all"
+                                    >
                                         <TrashIcon />
                                     </span>
                                 </ListItemSuffix>

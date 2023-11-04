@@ -15,8 +15,18 @@ const appReducer = (state, action) => {
             );
 
             return updatedHistories;
+
         case "REMOVE":
-            return state.filter((item, index) => index != action.payload);
+            const newHistories = state.filter(
+                (item, index) => index != action.payload
+            );
+            localStorage.setItem(
+                "api-explorer-histories",
+                JSON.stringify(newHistories)
+            );
+
+            return newHistories;
+
         default:
             return state;
     }
