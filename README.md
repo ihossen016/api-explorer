@@ -49,11 +49,16 @@ http://127.0.0.1:5173/
 
 -   React
 -   Vite
+-   Context API
 -   uuid
 -   JSON View
 -   TailwindCSS
 -   TailwindCSS Forms
 -   Material Tailwind
+
+#### Data Store
+
+-   Local Storage
 
 #### Version Control
 
